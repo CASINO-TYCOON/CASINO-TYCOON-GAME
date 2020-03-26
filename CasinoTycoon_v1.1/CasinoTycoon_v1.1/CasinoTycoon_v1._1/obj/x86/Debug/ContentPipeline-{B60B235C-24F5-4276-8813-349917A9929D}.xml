@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Pipeline="Microsoft.Xna.Framework.Content.Pipeline">
+  <Asset Type="Pipeline:BuildItemCollection">
+    <Item>
+      <Source>SpriteFont1.spritefont</Source>
+      <Name>SpriteFont1</Name>
+      <Importer>FontDescriptionImporter</Importer>
+      <Processor>FontDescriptionProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\SpriteFont1.xnb</Output>
+      <Time>2020-03-26T09:05:44.3557124-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Intro\introScreen.jpg</Source>
+      <Name>Intro\introScreen</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\Intro\introScreen.xnb</Output>
+      <Time>2020-03-26T09:13:40.9106324-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Intro\introTitle.jpg</Source>
+      <Name>Intro\introTitle</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\Intro\introTitle.xnb</Output>
+      <Time>2020-03-26T09:26:09.4762924-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Casino\casinoFloor.png</Source>
+      <Name>Casino\casinoFloor</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\Casino\casinoFloor.xnb</Output>
+      <Time>2020-03-26T10:33:11.5055065-05:00</Time>
+    </Item>
+    <Item>
+      <Source>Casino\slots.png</Source>
+      <Name>Casino\slots</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\Casino\slots.xnb</Output>
+      <Time>2020-03-26T10:37:49.9966554-05:00</Time>
+    </Item>
+    <Item>
+      <Source>3_24.jpg</Source>
+      <Name>3_24</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\3_24.xnb</Output>
+      <Time>2020-03-26T11:18:20.2037366-05:00</Time>
+    </Item>
+    <BuildSuccessful>true</BuildSuccessful>
+    <Settings>
+      <ContentProjectGUID>{B60B235C-24F5-4276-8813-349917A9929D}</ContentProjectGUID>
+      <TargetPlatform>Windows</TargetPlatform>
+      <TargetProfile>Reach</TargetProfile>
+      <BuildConfiguration>Debug</BuildConfiguration>
+      <CompressContent>false</CompressContent>
+      <RootDirectory>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1Content\</RootDirectory>
+      <LoggerRootDirectory>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\</LoggerRootDirectory>
+      <IntermediateDirectory>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\</OutputDirectory>
+    </Settings>
+    <Assemblies>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.XImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.VideoImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.TextureImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.FBXImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.EffectImporter.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Program Files (x86)\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.Content.Pipeline.AudioImporters.dll</Key>
+        <Value>2011-09-01T16:22:30-05:00</Value>
+      </Assembly>
+      <Assembly>
+        <Key>C:\Windows\Microsoft.Net\assembly\GAC_32\Microsoft.Xna.Framework.Content.Pipeline\v4.0_4.0.0.0__842cf8be1de50553\Microsoft.Xna.Framework.Content.Pipeline.dll</Key>
+        <Value>2020-03-24T12:10:10.110878-05:00</Value>
+      </Assembly>
+    </Assemblies>
+  </Asset>
+</XnaContent>
