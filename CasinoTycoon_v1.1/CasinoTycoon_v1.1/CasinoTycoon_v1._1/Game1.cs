@@ -34,10 +34,13 @@ namespace CasinoTycoon_v1._1
 
         Casino casino;
 
+        Texture2D player;
+        Rectangle playerRect;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content"; graphics.PreferredBackBufferWidth = 700; graphics.PreferredBackBufferHeight = 500; graphics.ApplyChanges();
+            Content.RootDirectory = "Content"; graphics.PreferredBackBufferWidth = 700; graphics.PreferredBackBufferHeight = 600; graphics.ApplyChanges();
         }
 
         /// <summary>
@@ -50,11 +53,12 @@ namespace CasinoTycoon_v1._1
         {
             // TODO: Add your initialization logic here
             screenWidth = 700;
-            screenHeight = 500;
+            screenHeight = 600;
             state = GameState.start;
             introRect = new Rectangle(0, 0, screenWidth, screenHeight);
-            introTitleRect = new Rectangle(210, 135, 300, 110);
-            casino = new Casino(Content.Load<Texture2D>("Casino/casinoFloor"), Content.Load<Texture2D>("Casino/slots"));
+            introTitleRect = new Rectangle(200, 165, 320, 130);
+            casino = new Casino(Content.Load<Texture2D>("Casino/casinoFloor"), Content.Load<Texture2D>("Casino/slots"), Content.Load<Texture2D>("Casino/door"));
+            playerRect = new Rectangle(screenWidth / 2, screenHeight / 2+10, 75, 75);
             base.Initialize();
         }
 
@@ -70,6 +74,7 @@ namespace CasinoTycoon_v1._1
             // TODO: use this.Content to load your game content here
             intro = Content.Load<Texture2D>("Intro/introScreen");
             introTitle = Content.Load<Texture2D>("Intro/introTitle");
+            player = Content.Load<Texture2D>("3_24");
         }
 
         /// <summary>
@@ -105,19 +110,37 @@ namespace CasinoTycoon_v1._1
 
             if(state == GameState.play)
             {
-                if(kb.IsKeyDown(Keys.Right))
+                
+                if (kb.IsKeyDown(Keys.Right) && playerRect.X + playerRect.Width < screenWidth)
+                {
+                        playerRect.X += 5;
+                }
+                if (kb.IsKeyDown(Keys.Left) && playerRect.X > 0)
+                {
+                        playerRect.X -= 5;
+                }
+                if (kb.IsKeyDown(Keys.Up) && playerRect.Y > 0)
+                {
+                        playerRect.Y -= 5;
+                }
+                if (kb.IsKeyDown(Keys.Down) && playerRect.Y + playerRect.Height < screenHeight)
+                {
+                        playerRect.Y += 5;
+                }
+                //Console.WriteLine("Player: " + playerRect.X + playerRect.Y);
+                if(playerRect.X + 100 >= screenWidth)
                 {
                     casino.move(Casino.Direction.right);
                 }
-                if (kb.IsKeyDown(Keys.Left))
+                if(playerRect.X <= 0)
                 {
                     casino.move(Casino.Direction.left);
                 }
-                if (kb.IsKeyDown(Keys.Up))
+                if(playerRect.Y <= 0)
                 {
                     casino.move(Casino.Direction.up);
                 }
-                if (kb.IsKeyDown(Keys.Down))
+                if(playerRect.Y + 100 >= screenHeight)
                 {
                     casino.move(Casino.Direction.down);
                 }
@@ -159,12 +182,15 @@ namespace CasinoTycoon_v1._1
             spriteBatch.Begin();
             spriteBatch.Draw(intro, introRect, Color.White);
             spriteBatch.Draw(introTitle, introTitleRect, Color.White);
-            spriteBatch.DrawString(spritefont1, "Press Enter to Start", new Vector2(450, 450), Color.White);
+            spriteBatch.DrawString(spritefont1, "Press Enter to Start", new Vector2(450, 525), Color.White);
             spriteBatch.End();
         }
         public void drawPlay()
         {
             casino.Draw(spriteBatch);
+            spriteBatch.Begin();
+            spriteBatch.Draw(player, playerRect, Color.White);
+            spriteBatch.End();
         }
     }
 }

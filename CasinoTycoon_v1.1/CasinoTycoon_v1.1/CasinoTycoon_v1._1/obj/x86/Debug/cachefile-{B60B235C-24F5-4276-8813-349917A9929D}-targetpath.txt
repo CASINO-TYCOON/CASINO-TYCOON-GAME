@@ -4,4 +4,5 @@ Content\Intro\introTitle.xnb
 Content\Casino\casinoFloor.xnb
 Content\Casino\slots.xnb
 Content\3_24.xnb
+Content\Casino\door.xnb
 Content\Casino\casinoLayout.txt

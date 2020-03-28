@@ -14,33 +14,25 @@ namespace CasinoTycoon_v1._1
 {
     class Casino
     {
-        Texture2D[,] casinoMap;
-        Rectangle[,] casinoMapRect;
+        Tile[,] casinoMap;
+        //Rectangle[,] casinoMapRect;
         Texture2D floor;
         Texture2D slots;
+        Texture2D door;
         public enum Direction { up, down, left, right};
-        public Casino(Texture2D f, Texture2D s)
+        public Casino(Texture2D f, Texture2D s, Texture2D d)
         {
-            casinoMap = new Texture2D[10,20];
-            casinoMapRect = new Rectangle[10, 20];
+            casinoMap = new Tile[10,20];
+            //casinoMapRect = new Rectangle[10, 20];
             floor = f;
             slots = s;
+            door = d;
             loadCasino();
         }
 
         public void loadCasino()
         {
             ReadFile(@"Content/Casino/casinoLayout.txt");
-            //int x = 0, y = 0;
-            //for(int i = 0; i < casinoMapRect.GetLength(0); i++)
-            //{
-            //    y += 20;
-            //    for(int j = 0; j < casinoMapRect.GetLength(1); j++)
-            //    {
-            //        casinoMapRect[i, j] = new Rectangle(x, y, 20, 20);
-            //        x += 20;
-            //    }
-            //}
         }
         public void ReadFile(string path)
         {
@@ -51,18 +43,29 @@ namespace CasinoTycoon_v1._1
                     while (!reader.EndOfStream)
                     {
                         int x = 0, y = 0;
-                        for(int i = 0; i < casinoMapRect.GetLength(0); i++)
+                        for(int i = 0; i < 10; i++)
                         {
                             char[] line = reader.ReadLine().ToCharArray();
                             for(int j = 0; j < line.Length; j++)
                             {
                                 char curr = line[j];
+                                Rectangle rectangle = new Rectangle(x, y, 100, 100);
                                 if (curr.Equals('.'))
-                                    casinoMap[i, j] = floor;
-                                if (curr.Equals('*'))
-                                    casinoMap[i, j] = slots;
+                                {
+                                    //casinoMap[i, j] = floor;
+                                    casinoMap[i, j] = new Tile(floor, rectangle, false); ;
+                                }
+                                    
+                                if (curr.Equals('s'))
+                                {
+                                    //casinoMap[i, j] = slots;
+                                    casinoMap[i, j] = new Tile(slots, rectangle, true);
+                                }
 
-                                casinoMapRect[i,j] = new Rectangle(x, y, 100, 100);
+                                if(curr.Equals('d'))
+                                {
+                                    casinoMap[i, j] = new Tile(door, rectangle, true);
+                                }
                                 x += 100;
                             }
                             x = 0;
@@ -80,50 +83,67 @@ namespace CasinoTycoon_v1._1
 
         public void move(Direction direction)
         {
-            if(direction == Direction.right && casinoMapRect[0,casinoMapRect.GetLength(1)-1].X > 700)
+            if(direction == Direction.right && casinoMap[0,casinoMap.GetLength(1)-1].rect.X > 700)
             {
-                for(int i = 0; i < casinoMapRect.GetLength(0); i++)
+                for(int i = 0; i < casinoMap.GetLength(0); i++)
                 {
-                    for(int j = 0; j < casinoMapRect.GetLength(1); j++)
+                    for(int j = 0; j < casinoMap.GetLength(1); j++)
                     {
-                        casinoMapRect[i, j].X -= 5;
+                        casinoMap[i, j].rect.X -= 5;
                     }
                 }
             }
 
             
-            if (direction == Direction.left && casinoMapRect[0, 0].X < 0)
+            if (direction == Direction.left && casinoMap[0, 0].rect.X < 0)
             {
-                for (int i = 0; i < casinoMapRect.GetLength(0); i++)
+                for (int i = 0; i < casinoMap.GetLength(0); i++)
                 {
-                    for (int j = 0; j < casinoMapRect.GetLength(1); j++)
+                    for (int j = 0; j < casinoMap.GetLength(1); j++)
                     {
-                        casinoMapRect[i, j].X += 5;
+                        casinoMap[i, j].rect.X += 5;
                     }
                 }
             }
             
-            if (direction == Direction.up && casinoMapRect[0, 0].Y < 0)
+            if (direction == Direction.up && casinoMap[0, 0].rect.Y < 0)
             {
-                for (int i = 0; i < casinoMapRect.GetLength(0); i++)
+                for (int i = 0; i < casinoMap.GetLength(0); i++)
                 {
-                    for (int j = 0; j < casinoMapRect.GetLength(1); j++)
+                    for (int j = 0; j < casinoMap.GetLength(1); j++)
                     {
-                        casinoMapRect[i, j].Y += 5;
+                        casinoMap[i, j].rect.Y += 5;
                     }
                 }
             }
-            Console.WriteLine(casinoMapRect[casinoMapRect.GetLength(0) - 1, 0].Y);
-            if (direction == Direction.down && casinoMapRect[casinoMapRect.GetLength(0)-1,0].Y > 500)
+            //Console.WriteLine(casinoMapRect[casinoMapRect.GetLength(0) - 1, 0].Y);
+            if (direction == Direction.down && casinoMap[casinoMap.GetLength(0)-1,0].rect.Y > 500)
             {
-                for (int i = 0; i < casinoMapRect.GetLength(0); i++)
+                for (int i = 0; i < casinoMap.GetLength(0); i++)
                 {
-                    for (int j = 0; j < casinoMapRect.GetLength(1); j++)
+                    for (int j = 0; j < casinoMap.GetLength(1); j++)
                     {
-                        casinoMapRect[i, j].Y -= 5;
+                        casinoMap[i, j].rect.Y -= 5;
                     }
                 }
             }
+        }
+
+        public Boolean collision(Rectangle playerRect)
+        {
+            Boolean collision = false;
+            for(int i = 0; i < casinoMap.GetLength(0); i++)
+            {
+                for(int j = 0; j < casinoMap.GetLength(1); j++)
+                {
+                    Rectangle currRect = casinoMap[i, j].rect;
+                    if(playerRect.Intersects(currRect) && casinoMap[i,j].isObstacle)
+                    {
+                        collision = true;
+                    }
+                }
+            }
+            return collision;
         }
 
         public void Draw(SpriteBatch sb)
@@ -133,8 +153,8 @@ namespace CasinoTycoon_v1._1
             {
                 for(int j = 0; j < casinoMap.GetLength(1); j++)
                 {
-                    Texture2D currText = casinoMap[i,j];
-                    Rectangle currRect = casinoMapRect[i,j];
+                    Texture2D currText = casinoMap[i,j].texture;
+                    Rectangle currRect = casinoMap[i,j].rect;
                     sb.Draw(currText, currRect, Color.White);
                 }
             }

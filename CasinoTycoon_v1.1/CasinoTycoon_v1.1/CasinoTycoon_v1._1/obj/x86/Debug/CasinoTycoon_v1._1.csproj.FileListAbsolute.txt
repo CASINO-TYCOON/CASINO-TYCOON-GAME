@@ -21,3 +21,4 @@ c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoT
 c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\Casino\slots.xnb
 c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\Casino\casinoLayout.txt
 c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\3_24.xnb
+C:\Users\Adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\Casino\door.xnb

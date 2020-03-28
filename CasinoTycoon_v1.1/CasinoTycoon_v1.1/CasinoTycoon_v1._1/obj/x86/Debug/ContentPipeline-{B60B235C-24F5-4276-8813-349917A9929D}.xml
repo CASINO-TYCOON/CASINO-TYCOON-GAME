@@ -55,6 +55,15 @@
       <Output>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\3_24.xnb</Output>
       <Time>2020-03-26T11:18:20.2037366-05:00</Time>
     </Item>
+    <Item>
+      <Source>Casino\door.jpg</Source>
+      <Name>Casino\door</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+      <Options>None</Options>
+      <Output>C:\Users\Adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\Casino\door.xnb</Output>
+      <Time>2020-03-27T18:32:01.6373535-05:00</Time>
+    </Item>
     <BuildSuccessful>true</BuildSuccessful>
     <Settings>
       <ContentProjectGUID>{B60B235C-24F5-4276-8813-349917A9929D}</ContentProjectGUID>
@@ -62,10 +71,10 @@
       <TargetProfile>Reach</TargetProfile>
       <BuildConfiguration>Debug</BuildConfiguration>
       <CompressContent>false</CompressContent>
-      <RootDirectory>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1Content\</RootDirectory>
-      <LoggerRootDirectory>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\</LoggerRootDirectory>
-      <IntermediateDirectory>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\obj\x86\Debug\</IntermediateDirectory>
-      <OutputDirectory>c:\users\adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\</OutputDirectory>
+      <RootDirectory>C:\Users\Adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1Content\</RootDirectory>
+      <LoggerRootDirectory>C:\Users\Adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\</LoggerRootDirectory>
+      <IntermediateDirectory>C:\Users\Adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\obj\x86\Debug\</IntermediateDirectory>
+      <OutputDirectory>C:\Users\Adithya\documents\visual studio 2015\Projects\CasinoTycoon_v1.1\CasinoTycoon_v1.1\CasinoTycoon_v1._1\bin\x86\Debug\Content\</OutputDirectory>
     </Settings>
     <Assemblies>
       <Assembly>
