@@ -1,0 +1,11 @@
+class Item
+    {
+        string name;
+        Texture2D icon;
+
+        public Item(string name2, Texture2D icon2)
+        {
+            name = name2;
+            icon = icon2;
+        }
+    }
