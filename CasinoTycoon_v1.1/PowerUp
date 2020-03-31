@@ -1,0 +1,30 @@
+class PowerUp : Item
+    {
+        public enum powerUpType //Value accessed by the main logic class. Can be used to determine what a powerup should do if it is found to be active
+        {
+            shield, //Ignore any damage while active
+            hourglass //Double any money gained
+        }
+
+        public int activeTime; //Amount of time the powerup lasts before wearing off
+
+        public Boolean active; //True if the powerup is being used, false otherwise
+        public powerUpType type; 
+
+        public PowerUp(string name2, Texture2D icon2, int activeTime2, powerUpType type2) : base(name2, icon2)
+        {
+            activeTime = activeTime2;
+            active = false;
+            type = type2;
+        }
+        
+        public void activate() //Begins the powerup's effects
+        {
+            active = true;
+        }
+
+        public void update()
+        {
+            activeTime--;
+        }
+    }
