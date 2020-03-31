@@ -1,0 +1,151 @@
+class Robber
+    {
+        /// <summary>
+        /// At the current phase robbers should be functional albeit stupid. If there is extra development time we can make them smarter.
+        /// </summary>
+
+        public static int SPEED = 2; //How fast the robber moves (adjust this at testing phase)
+
+        enum robberState 
+        {
+            IDLE, //The player is not close enough, moves randomly
+            CHASE, //Follow the player
+            RESET, //Used if the robber catches the player, moves him away before returning to idle
+        }
+
+        private robberState status; //Determines the behavior of the robber
+
+        private Rectangle rect;
+        private Texture2D currentText; //The texture that will be displayed at any given frame
+        private Texture2D[] animationFrames; //Stores all the textures for animating the robber
+
+        Tile[] tiles;
+
+        public Robber(Rectangle rect2, Texture2D[] animationFrames2, Tile[] tiles2)
+        {
+            status = robberState.IDLE;
+            currentText = animationFrames2[0];
+            animationFrames = animationFrames2;
+            tiles = tiles2;
+        }
+
+        private void moveHorizontally(int distance)
+        {
+            Vector2 center = new Vector2((rect.X + rect.Width / 2) + distance, rect.Y + rect.Height / 2);
+            Tile endingTile;
+
+            for(int i=0; i<tiles.Length; i++)
+            {
+                //Find the tile that the robber would be within
+                if (center.X >= tiles[i].x && center.X < tiles[i].x + tiles[i].width && center.Y >= tiles[i].y && center.Y < tiles[i].y + tiles[i].height) //Placeholder logic until tile class is implemented
+                {
+                    endingTile = tiles[i];
+                }
+            }
+
+            if(!endingTile.isObstacle) //Move robber if it is possible
+            {
+                rect.X += distance;
+            }
+        }
+
+        private void moveVertically(int distance)
+        {
+            Vector2 center = new Vector2(rect.X + rect.Width / 2, (rect.Y + rect.Height / 2) + distance);
+            Tile endingTile;
+
+            for(int i=0; i<tiles.Length; i++)
+            {
+                //Find the tile that the robber would be within
+                if(center.X >= tiles[i].x && center.X < tiles[i].x + tiles[i].width && center.Y >= tiles[i].y && center.Y < tiles[i].y + tiles[i].height) //Placeholder logic until tile class is implemented
+                {
+                    endingTile = tiles[i];
+                }
+            }
+
+            if(!endingTile.isObstacle) //Move robber if it is possible
+            {
+                rect.Y += distance;
+            }
+        }
+
+        private void update()
+        {
+            if(status == robberState.IDLE) //Simple random movements. Further updates can make them smarter but for now they just go anywhere.
+            {
+                Random rand = new Random();
+
+                int RNG = rand.Next(3);
+                if(RNG == 1)
+                {
+                    moveHorizontally(SPEED);
+                }
+                if (RNG == 1)
+                {
+                    moveHorizontally(SPEED * -1);
+                }
+                if (RNG == 1)
+                {
+                    moveVertically(SPEED);
+                }
+                if (RNG == 1)
+                {
+                    moveVertically(SPEED * -1);
+                }
+                if(/*Player is near*/)
+                {
+                    status = robberState.CHASE;
+                }
+            }
+            if (status == robberState.CHASE) //Moves toward the player. They will realistically move twice each frame (once horizontally, once vertically)
+            {
+                if (/*Player is below*/)
+                {
+                    moveHorizontally(SPEED);
+                }
+                if (/*Player is above*/)
+                {
+                    moveHorizontally(SPEED * -1);
+                }
+                if (/*Player is right*/)
+                {
+                    moveVertically(SPEED);
+                }
+                if (/*Player is left*/)
+                {
+                    moveVertically(SPEED * -1);
+                }
+                if (/*Player is too far*/)
+                {
+                    status = robberState.IDLE;
+                }
+                if (/*Player is caught*/)
+                {
+                    status = robberState.RESET;
+                }
+            }
+            if (status == robberState.RESET) //Moves away from the player. Based on the player's movements it may be possible to get them stuck in a corner, this might need to be adressed later
+            {
+                if (/*Player is above*/)
+                {
+                    moveHorizontally(SPEED * 2); //They go faster than normal so the player can't catch them during a reset phase
+                }
+                if (/*Player is below*/)
+                {
+                    moveHorizontally(SPEED * -2);
+                }
+                if (/*Player is left*/)
+                {
+                    moveVertically(SPEED * 2);
+                }
+                if (/*Player is right*/)
+                {
+                    moveVertically(SPEED * -2);
+                }
+                if (/*Player is far enough away (10 tiles?)*/) //Once they are far away they will again become aggressive
+                {
+                    status = robberState.IDLE;
+                }
+            }
+        }
+    }
