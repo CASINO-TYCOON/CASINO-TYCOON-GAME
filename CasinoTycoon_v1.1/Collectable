@@ -1,0 +1,32 @@
+class Collectable : Item
+    {
+        public enum collectableType //Value accessed by the main logic class. Can be used to determine what the collectable should do
+        {
+            coin, //Add $1
+            goldBar, //Add $50
+            moneybag //Add $200
+        }
+
+        public collectableType type;
+
+        public Collectable(string name2, Texture2D icon2, collectableType type2) : base(name2, icon2)
+        {
+            type = type2;
+        }
+        
+        private void use() //Apply an effect based on the type
+        {
+            if(type == collectableType.coin)
+            {
+                //Add $1
+            }
+            if (type == collectableType.goldBar)
+            {
+                //Add $50
+            }
+            if (type == collectableType.moneybag)
+            {
+                //Add $50
+            }
+        }
+    }
